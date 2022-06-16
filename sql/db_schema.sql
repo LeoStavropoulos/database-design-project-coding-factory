@@ -68,5 +68,6 @@ CREATE TABLE Campsite_Bookings(
     End_date DATE NOT NULL,
     Persons_number INT NOT NULL,
     CONSTRAINT FK_Campsite_Bookings_Campsites FOREIGN KEY (Camping_id, Campsite_num) REFERENCES Campsites (Camping_id, Campsite_num),   
-    CONSTRAINT FK_Campsite_Bookings_Bookings FOREIGN KEY (Booking_num) REFERENCES Bookings (Booking_num) 
+    CONSTRAINT FK_Campsite_Bookings_Bookings FOREIGN KEY (Booking_num) REFERENCES Bookings (Booking_num),
+    CONSTRAINT CK_Booking_Dates CHECK (Start_date <= End_date) 
 );
